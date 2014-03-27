@@ -7,5 +7,4 @@ class App < Sinatra::Application
     erb :index
   end
 
-
 end

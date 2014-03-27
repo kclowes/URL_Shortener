@@ -1,0 +1,22 @@
+div {
+    text-align: center;
+    margin-top: 20%;
+}
+
+input[type="text"] {
+    width: 500px;
+    height: 30px;
+    margin: 15px;
+    border-color: black;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    background-color: #3366FF;
+    display: block;
+    margin: auto;
+    font-size: 14px;
+    color: white;
+    border-color: black;
+}

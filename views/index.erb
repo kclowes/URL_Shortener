@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <link href="css/stylesheet.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<form action="/shorten" method="post">
-  <input type="text" name="url_to_be_shortened" id="url_to_be_shortened"/>
-  <input type="submit" value="Shorten"/>
-</form>
+<div>
+  <form action="/shorten" method="post">
+    <input type="text" name="url_to_be_shortened" id="url_to_be_shortened"/>
+  <span>
+    <button type="submit" value="Shorten">Shorten</button>
+   </span>
+  </form>
+</div>
 </body>
 </html>
