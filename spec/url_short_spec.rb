@@ -10,12 +10,3 @@ feature 'Creating URL Shortener' do
     expect(page).to have_button("Shorten")
   end
 end
-
-#  scenario 'User sees a text field with explanatory placeholder text'
-#
-#
-#      expect(page).to have_content("")
-#
-#  scenario 'User sees a "shorten" button'
-#
-#end

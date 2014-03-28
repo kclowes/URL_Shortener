@@ -8,4 +8,4 @@ Heroku staging URL:
 http://lit-river-4368.herokuapp.com/
 
 Heroku production URL:
-http://desolate-plains-6329.herokuapp.com/
+http://glacial-bastion-8094.herokuapp.com/
