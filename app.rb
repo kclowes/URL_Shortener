@@ -2,10 +2,12 @@ require 'sinatra'
 require 'sinatra/base'
 
 class App < Sinatra::Application
-  ORIGINAL_URL=[]
+
+  URL_HASH={}
 
   get '/' do
-    erb :index, :locals => { :url_to_be_shortened => ORIGINAL_URL }
+    erb :index
+    #:locals => { :url_to_be_shortened => ORIGINAL_URL }
   end
 
   get '/shorten' do
@@ -13,7 +15,9 @@ class App < Sinatra::Application
   end
 
   post '/' do
-    ORIGINAL_URL << params[:url_to_be_shortened]
+    URL_HASH[:url] = params[:url_to_be_shortened]
+    URL_HASH[:url => params[:output]]
+    redirect '/shorten'
   end
 
 end
