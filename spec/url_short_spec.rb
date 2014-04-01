@@ -14,10 +14,12 @@ feature 'Creating URL Shortener' do
     expect(page).to have_content('Original URL')
     expect(page).to have_content('"Shortened" URL')
     expect(page).to have_content('http://google.com')
-    expect(page).to have_content('http://lit-river-4368.herokuapp.com/1') # Heroku staging URL
-    click_on('"Shorten" another URL')
-    expect(page).to have_field('url_to_be_shortened')
+    expect(page).to have_content('http://www.example.com/1')
+    visit('http://www.example.com/1')
+    expect(current_url).to eq('http://google.com/')
+
   end
+
 end
 
 

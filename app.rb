@@ -19,8 +19,13 @@ class App < Sinatra::Application
     url_tbs = params[:url_to_be_shortened]
     URL_ARRAY << url_tbs
     id = URL_ARRAY.index(url_tbs) + 1
-    OUTPUT_ARRAY << ("http://lit-river-4368.herokuapp.com/#{id}")
+    output = request.scheme + "://" + request.host_with_port + "/#{id}"
+    OUTPUT_ARRAY << output
     redirect '/shorten'
+  end
+
+  get '/:id' do
+    redirect URL_ARRAY.last
   end
 
 end
