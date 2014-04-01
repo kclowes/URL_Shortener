@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Muli:300,400' rel='stylesheet' type='text/css'/>
   <link href="<%= url('styles/stylesheet.css') %>" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-  <p>Original URL
-    <%= URL_ARRAY.last %>
-  </p>
-  <p>"Shortened" URL</p>
-    <%= OUTPUT_ARRAY.last %>
+
+  <div class="column1">
+   <p> Original URL</p>
+    <p>"Shortened" URL</p>
+  </div>
+  <div class="column2">
+    <p><%= URL_ARRAY.last %></p>
+    <p><%= OUTPUT_ARRAY.last %></p>
+    <p><a href="/">"Shorten" another URL</a></p>
+  </div>
+
 </body>
 </html>
