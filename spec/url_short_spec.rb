@@ -22,6 +22,7 @@ feature 'Creating URL Shortener' do
     expect(page).to have_content('Original URL')
     expect(page).to have_content('"Shortened" URL')
     expect(page).to have_content('http://google.com')
+    expect(page).to have_content('http://lit-river-4368.herokuapp.com/1') # Heroku staging URL
   end
 end
 

@@ -3,7 +3,8 @@ require 'sinatra/base'
 
 class App < Sinatra::Application
 
-  URL_HASH={}
+  URL_ARRAY=[]
+  OUTPUT_ARRAY=[]
 
   get '/' do
     erb :index
@@ -15,8 +16,10 @@ class App < Sinatra::Application
   end
 
   post '/' do
-    URL_HASH[:url] = params[:url_to_be_shortened]
-    URL_HASH[:url => params[:output]]
+    url_tbs = params[:url_to_be_shortened]
+    URL_ARRAY << url_tbs
+    id = URL_ARRAY.index(url_tbs) + 1
+    OUTPUT_ARRAY << ("http://lit-river-4368.herokuapp.com/#{id}")
     redirect '/shorten'
   end
 

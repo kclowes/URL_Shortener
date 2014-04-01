@@ -17,3 +17,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+def by(message)
+  yield
+end
+
+alias and_by by
