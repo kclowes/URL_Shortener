@@ -17,7 +17,12 @@ feature 'Creating URL Shortener' do
     expect(page).to have_content('http://www.example.com/1')
     visit('http://www.example.com/1')
     expect(current_url).to eq('http://google.com/')
-
+  end
+  scenario "user enters a non-url and receives an error" do
+    visit("/")
+    fill_in("url_to_be_shortened", :with => 'string')
+    click_on("Shorten")
+    expect(page).to have_content("The text you entered is not a valid URL")
   end
 
 end
