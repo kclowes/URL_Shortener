@@ -1,4 +1,3 @@
-require 'sinatra'
 require 'sinatra/base'
 
 class App < Sinatra::Application
@@ -6,9 +5,10 @@ class App < Sinatra::Application
   URL_ARRAY=[]
   OUTPUT_ARRAY=[]
 
+  enable :sessions
+
   get '/' do
     erb :index
-    #:locals => { :url_to_be_shortened => ORIGINAL_URL }
   end
 
   get '/shorten' do
@@ -17,17 +17,17 @@ class App < Sinatra::Application
 
   post '/' do
     url_tbs = params[:url_to_be_shortened]
-    if url_tbs.include? "http://"
-    URL_ARRAY << url_tbs
-    id = URL_ARRAY.index(url_tbs) + 1
-    output = request.scheme + "://" + request.host_with_port + "/#{id}"
-    OUTPUT_ARRAY << output
-    redirect '/shorten'
+    if url_tbs.start_with?("http")
+      URL_ARRAY << url_tbs
+      id = URL_ARRAY.index(url_tbs) + 1
+      output = request.scheme + "://" + request.host_with_port + "/#{id}"
+      OUTPUT_ARRAY << output
+      redirect '/shorten'
     else
-      "The text you entered is not a valid URL"
+      @error_message="The text you entered is not a valid URL"
+      erb :index
     end
-
-  end
+    end
 
   get '/:id' do
     redirect URL_ARRAY.last
