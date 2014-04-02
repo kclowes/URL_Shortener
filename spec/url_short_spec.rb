@@ -24,6 +24,12 @@ feature 'Creating URL Shortener' do
     click_on("Shorten")
     expect(page).to have_content("The text you entered is not a valid URL")
   end
+  scenario "user does not fill in anything in the box" do
+    visit("/")
+    fill_in("url_to_be_shortened", :with => ' ')
+    click_on("Shorten")
+    expect(page).to have_content("URL cannot be blank")
+  end
 
 end
 

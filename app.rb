@@ -23,6 +23,9 @@ class App < Sinatra::Application
       output = request.scheme + "://" + request.host_with_port + "/#{id}"
       OUTPUT_ARRAY << output
       redirect '/shorten'
+    elsif url_tbs.start_with?(" ")
+      @error_message="URL cannot be blank"
+      erb :index
     else
       @error_message="The text you entered is not a valid URL"
       erb :index
